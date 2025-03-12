@@ -1,0 +1,7 @@
+body { font-family: Arial, sans-serif; text-align: center; }
+
+#breedList { margin: 20px; padding: 10px; }
+
+#breedInfo { margin-top: 20px; }
+
+img { max-width: 300px; border-radius: 10px; display: block; margin: 10px auto; }

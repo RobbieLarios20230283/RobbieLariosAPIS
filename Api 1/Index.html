@@ -3,9 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Api 1</title>
+    <title>Robbie Larios Fernando Orellana</title>
+    <link rel="stylesheet" href="css.css">
 </head>
 <body>
-    
+
+    <h1>Buscador de personajes</h1>
+
+    <div id="filters">
+        <input type="text" id="name-filter" placeholder="Filtrado por nombre" >
+        <select id="status-filter">
+            <option value="">Filtrar</option>
+            <option value="alive">Vivo</option>
+            <option value="dead">Vivo n't</option>
+            <option value="unknown">Nosabido</option>
+        </select>
+    </div>
+
+    <div class="container">
+        <div id="characters">
+        </div>
+    </div>
+    <script src="js.js"></script>
 </body>
 </html>

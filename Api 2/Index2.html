@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robbie Fernando larios orellana</title>
+    <link rel="stylesheet" href="css2.css">
+</head>
+<body>
+    <h1>Buscador de dogs skibidi papu</h1>
+    <select id="breedList"></select>
+    <div id="breedInfo"></div>
+
+    <script>
+        async function Breds() {
+            const response = await fetch('https://dogapi.dog/api/v2/breeds');
+            
+            const data = await response.json();
+
+            const breeds = data.data;
+
+            
+            const breedList = document.getElementById('breedList');
+            breeds.forEach(breed => {
+                let option = document.createElement('option');
+
+                option.value = breed.id;
+
+                option.textContent = breed.attributes.name;
+                breedList.appendChild(option);
+            });
+            
+            breedList.addEventListener('change', () => MasInfo(breeds));
+        }
+
+        function MasInfo(breeds) {
+            const selectedBreedId = document.getElementById('breedList').value;
+            const breed = breeds.find(b => b.id === selectedBreedId);
+            if (!breed) return;
+            
+            document.getElementById('breedInfo').innerHTML = `
+                <h2>${breed.attributes.name}
+                    </h2>
+                <p>${breed.attributes.description 
+                    || 'No description available'}</p>
+                <p>
+                    <strong>Life Expectancy:</strong> ${breed.attributes.life.min} - ${breed.attributes.life.max} years</p>
+
+                <p>
+                    <strong>Male Weight:</strong> ${breed.attributes.male_weight.min} - ${breed.attributes.male_weight.max} kg</p>
+                <p>
+                    <strong>Female Weight:</strong> ${breed.attributes.female_weight.min} - ${breed.attributes.female_weight.max} kg</p>
+                <p>
+                    <strong>Hypoallergenic:</strong> ${breed.attributes.hypoallergenic ? 'Yes' : 'No'}</p>
+                ${breed.attributes.image_url ? `<img src="${breed.attributes.image_url}" alt="${breed.attributes.name}">` : '<p>No image available</p>'}
+            `;
+        }
+
+        Breds();
+    </script>
+</body>
+</html>

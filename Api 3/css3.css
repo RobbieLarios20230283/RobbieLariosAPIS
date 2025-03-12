@@ -1,0 +1,47 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+h1 {
+    text-align: center;
+    color: #333;
+}
+#todos-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+.todo-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 10px;
+    padding: 15px;
+    width: 300px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.todo-card h3 {
+    margin: 0 0 10px;
+    color: #555;
+}
+.todo-card p {
+    margin: 0;
+    color: #777;
+}
+
+.todo-card.completed {
+    background-color: #e0f7fa;
+}
+
+.todo-card.completed h3 {
+    color: #00796b;
+}
+
+.todo-card.completed p {
+    color: #004d40;
+}
